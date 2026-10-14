@@ -5,6 +5,20 @@
 <title>Les trois états de l’eau</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#eef7fb;color:#19374b;font-family:Arial,sans-serif;font-size:18px}main{max-width:1400px;margin:auto;padding:28px}header{margin-bottom:22px}h1{font-size:clamp(28px,4vw,44px);margin:0 0 12px}p{line-height:1.5;margin:8px 0}button{font:inherit;cursor:pointer;min-height:48px;border:2px solid #688ba1;border-radius:12px;padding:12px 18px;background:white;color:#19374b}button:focus-visible{outline:4px solid #e59a00;outline-offset:3px}.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:20px 0}.primary{background:#176b94;color:white;border-color:#176b94}#status{font-weight:bold;min-height:28px}#status:empty{display:none}.bank{background:#fff;border-radius:18px;padding:18px;margin-bottom:24px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;min-height:65px}.card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:12px;min-height:116px;text-align:center;background:#fff;border:2px solid #b3cbd8;overflow-wrap:anywhere}.card[aria-pressed=true]{border:4px solid #176b94;background:#e3f2fa}.photo{display:block;width:100%;height:105px;object-fit:contain}.bank .cards{grid-template-columns:repeat(6,minmax(0,1fr))}@media(max-width:900px){.bank .cards{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:580px){.bank .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}.mark{font-size:15px;font-weight:bold}.card.good{border-color:#187644;background:#eaf8ef}.card.bad{border-color:#b13230;background:#fff0ef}.columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.zone{background:#fff;border:3px dashed #9bbdce;border-radius:18px;padding:14px;min-height:310px}.zone.over{background:#e0eff8;border-color:#176b94}.zone h2{margin:0;font-size:26px}.zone .hint{font-size:16px;margin:8px 0 14px}.columns .zone .cards{grid-template-columns:repeat(2,minmax(0,1fr))}.place{width:100%;margin-bottom:15px;font-weight:bold}.liquid{border-color:#237da4}.solid{border-color:#7563a5}.gas{border-color:#b78522}details{background:#fff;padding:16px;border-radius:14px;margin-top:22px}summary{cursor:pointer;font-weight:bold}#explanations li{margin:10px 0;line-height:1.4}[hidden]{display:none!important}@media(max-width:760px){main{padding:16px}.columns{gap:10px}.zone{padding:10px}.zone h2{font-size:21px}.columns .zone .cards{grid-template-columns:1fr}.card{font-size:16px}.place{font-size:16px;padding:10px}}@media(max-width:480px){.columns{grid-template-columns:1fr}.zone{min-height:170px}.columns .zone .cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media print{.tools,.place{display:none}body{background:white}.columns{grid-template-columns:repeat(3,1fr)}.card{break-inside:avoid}}
+
+/* Format compact pour une iframe de présentation. */
+@media (min-width:760px) and (max-height:650px){
+ main{padding:12px 18px}header{margin-bottom:10px}h1{font-size:28px;margin:0}
+ .bank.zone{padding:10px;margin-bottom:12px;min-height:0}.place{min-height:34px;padding:6px 10px;margin-bottom:8px;font-size:15px}
+ .card{padding:5px;min-height:85px;gap:3px;font-size:14px;border-radius:8px}.photo{height:60px}
+ .cards{gap:7px;min-height:0}.columns{gap:12px}.zone{padding:9px;min-height:190px}
+ .bank .cards{grid-template-columns:repeat(6,minmax(0,1fr))}.columns .zone .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .zone h2{font-size:21px}.zone .hint{font-size:13px;margin:4px 0 7px}
+ .columns .card{min-height:65px;font-size:12px}.columns .photo{height:42px}
+ .tools{margin:10px 0 0;gap:9px}.tools button{min-height:36px;padding:7px 12px;font-size:15px}
+ #status{font-size:14px;min-height:0;margin:5px 0}.mark{font-size:12px}
+ #feedback h2{font-size:21px}#feedback{font-size:15px}
+}
 </style>
 </head>
 <body><main>
