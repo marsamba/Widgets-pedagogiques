@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#33214f">
+  <meta name="description" content="Une frise, des activités et un quiz pour découvrir les grands repères de l’histoire au CE2.">
+  <title>D28 · Quels sont les grands repères de l’histoire ?</title>
+  <link rel="icon" href="assets/logos/logo-personnel.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/contenus.js" defer></script>
+  <script src="js/elea.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header class="toolbar">
+    <div class="toolbar-inner">
+      <a class="brand" href="#sommaire" aria-label="Histoire D28, retour au sommaire">
+        <img src="assets/logos/logo-personnel.png" alt="" width="42" height="42">
+        <span>Histoire <small>CE2 · Cycle 2</small></span>
+      </a>
+      <nav class="tools" aria-label="Navigation du dossier">
+        <a class="tool" href="#sommaire" data-nav="sommaire">Sommaire</a>
+        <button class="tool" id="pages" type="button" aria-expanded="false" aria-controls="navigateur"><span aria-hidden="true">☰</span> Pages</button>
+        <button class="tool full" id="fullscreen" type="button" title="Plein écran" aria-label="Plein écran">⛶</button>
+      </nav>
+    </div>
+  </header>
+  <div class="workspace">
+    <aside id="navigateur" class="navigator" aria-label="Navigateur de pages" hidden>
+      <div class="navigator-head"><strong>Pages</strong><button id="pin" class="btn small alt" type="button" aria-pressed="false">Épingler</button><button id="close-nav" class="close" type="button" aria-label="Replier les pages">×</button></div>
+      <nav id="page-links" aria-label="Pages du dossier"></nav>
+    </aside>
+    <main id="contenu" tabindex="-1"></main>
+  </div>
+  <footer><span>Histoire · Se situer dans le temps</span><span>Dossier 28 · CE2</span></footer>
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-top"><div><p class="eyebrow">Visionneuse</p><h2 id="viewer-title"></h2></div><button type="button" class="close" id="close-viewer" aria-label="Fermer la visionneuse">×</button></div>
+    <div id="viewer-canvas" class="viewer-canvas" tabindex="0" aria-label="Aperçu du document"></div>
+    <div id="viewer-controls" class="viewer-controls"></div>
+  </dialog>
+  <noscript>Active JavaScript dans ton navigateur pour utiliser le sommaire et les exercices.</noscript>
+</body>
+</html>
