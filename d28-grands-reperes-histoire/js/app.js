@@ -11,6 +11,7 @@ const panels = new Map();
 const titles = ['Sommaire', ...SECTIONS.map(s => s[1])];
 const photo = (id, alt = '', attrs = '') => `<img src="assets/images/${id}.webp" alt="${alt}" ${attrs}>`;
 const btn = (text, attrs, alt = false) => `<button type="button" class="btn${alt ? ' alt' : ''}" ${attrs}>${text}</button>`;
+const docButton = (key, label = DOCUMENTS[key][0]) => btn(label, `data-document="${key}"`, true);
 const pageHead = (i, extra = '') => {
   const [, title, desc, category] = SECTIONS[i];
   return `<header class="page-head tone-${i}"><a href="#sommaire" class="back">← Sommaire</a><p class="eyebrow">Vignette ${String(i+1).padStart(2,'0')} · ${category}</p><h1 tabindex="-1">${title}</h1><p>${desc}</p>${extra}</header>`;
@@ -31,7 +32,8 @@ function home() {
   </section>
   <div class="section-label"><h2>Sommaire</h2><span>5 vignettes</span></div>
   <div class="grid">${SECTIONS.map(([id,title,desc,category], i) =>
-    `<article class="card tone-${i}"><a class="card-link" href="#${id}"><div class="card-art" aria-hidden="true"><span class="card-number">${String(i+1).padStart(2,'0')}</span>${arts[i]}</div><div class="card-body"><p class="eyebrow">${category}</p><h3>${title}<span class="arrow" aria-hidden="true">→</span></h3><p>${desc}</p></div></a></article>`).join('')}</div>`;
+    `<article class="card tone-${i}"><a class="card-link" href="#${id}"><div class="card-art" aria-hidden="true"><span class="card-number">${String(i+1).padStart(2,'0')}</span>${arts[i]}</div><div class="card-body"><p class="eyebrow">${category}</p><h3>${title}<span class="arrow" aria-hidden="true">→</span></h3><p>${desc}</p></div></a></article>`).join('')}</div>
+  <section class="fiches" aria-labelledby="fiches-title"><h2 id="fiches-title">Fiches</h2><div class="actions">${docButton('fiche-eleve')}${docButton('je-retiens')}${docButton('evaluation')}</div></section>`;
 }
 
 function frise() {
@@ -48,7 +50,7 @@ function toRoman(n) {
 }
 
 function romains() {
-  return `${pageHead(1)}
+  return `${pageHead(1, `<div class="actions">${docButton('chiffres-romains', 'Ouvrir le mémo illustré')}</div>`)}
   <div class="lesson-grid">
     <section class="activity"><p class="eyebrow">Les symboles</p><h2>Sept lettres pour écrire les nombres</h2><dl class="symbols">${[[1,'I'],[5,'V'],[10,'X'],[50,'L'],[100,'C'],[500,'D'],[1000,'M']].map(([v,k]) => `<div><dt>${k}</dt><dd>${v.toLocaleString('fr-FR')}</dd></div>`).join('')}</dl>
       <div class="rules"><p><strong>On ajoute</strong> quand la petite valeur est après la grande : <b>VI = 5 + 1 = 6</b>.</p><p><strong>On enlève</strong> dans des groupes comme IV ou IX : <b>IV = 5 − 1 = 4</b> et <b>IX = 10 − 1 = 9</b>.</p></div>
@@ -229,20 +231,23 @@ document.addEventListener('fullscreenchange', () => {
 
 let view;
 function viewOpen(data, opener) {
-  view = {...data, opener, zoom:1};
+  view = {...data, opener, page:1, zoom:1};
   updateView();
   viewer.showModal();
   $('#close-viewer').focus();
 }
 function updateView() {
-  const {title,img,zoom} = view;
+  const {title,key,pages:count,img,page,zoom} = view;
   $('#viewer-title').textContent = title;
   const canvas = $('#viewer-canvas');
   canvas.classList.toggle('is-zoom', zoom > 1);
   canvas.style.setProperty('--zoom',`${100*zoom}%`);
-  canvas.innerHTML = `<img src="${img}" alt="${title}">`;
+  const src = img || `assets/apercus/${key}-${page}.webp`;
+  canvas.innerHTML = `<img src="${src}" alt="${title}${count > 1 ? ', page ' + page : ''}">`;
   canvas.scrollTo(0,0);
-  $('#viewer-controls').innerHTML = `${btn('−',`data-view="out" aria-label="Réduire le zoom" ${zoom <= 1 ? 'disabled' : ''}`,true)}<span>${Math.round(zoom*100)} %</span>${btn('+',`data-view="in" aria-label="Agrandir" ${zoom >= 3 ? 'disabled' : ''}`,true)}`;
+  $('#viewer-controls').innerHTML = `${count > 1 ? `${btn('← Précédente',`data-view="prev" ${page === 1 ? 'disabled' : ''}`,true)}<span role="status">${page} / ${count}</span>${btn('Suivante →',`data-view="next" ${page === count ? 'disabled' : ''}`,true)}` : ''}
+  ${btn('−',`data-view="out" aria-label="Réduire le zoom" ${zoom <= 1 ? 'disabled' : ''}`,true)}<span>${Math.round(zoom*100)} %</span>${btn('+',`data-view="in" aria-label="Agrandir" ${zoom >= 3 ? 'disabled' : ''}`,true)}
+  ${key ? `<a class="btn alt" href="assets/documents/${key}.pdf" target="_blank" rel="noopener">Ouvrir le PDF ↗</a>` : ''}`;
 }
 $('#close-viewer').addEventListener('click',()=>viewer.close());
 viewer.addEventListener('close',()=>view.opener.focus());
@@ -251,8 +256,11 @@ viewer.addEventListener('click',e=>{
   const control=e.target.closest('[data-view]');
   if (!control) return;
   const cmd=control.dataset.view;
+  if (cmd==='prev') view.page--;
+  if (cmd==='next') view.page++;
   if (cmd==='out') view.zoom-=0.5;
   if (cmd==='in') view.zoom+=0.5;
+  if (cmd==='prev' || cmd==='next') view.zoom=1;
   updateView();
   const newControl = $(`[data-view="${cmd}"]:not(:disabled)`,viewer);
   (newControl || $('#viewer-canvas')).focus();
@@ -262,6 +270,10 @@ main.addEventListener('click', e => {
   const target = e.target.closest('button');
   if (!target) return;
   const d = target.dataset;
+  if (d.document) {
+    const [title,pages] = DOCUMENTS[d.document];
+    viewOpen({title,pages,key:d.document},target);
+  }
   if (d.image) viewOpen({title:d.caption,img:`assets/images/${d.image}.webp`},target);
   if (d.period !== undefined) {
     main.querySelectorAll('[data-period]').forEach(b=>b.setAttribute('aria-pressed', String(b===target)));

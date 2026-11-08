@@ -44,3 +44,10 @@ const QUIZ = [
   ['À quelle période associe-t-on Louis XIV et Versailles ?', ['L’Antiquité', 'La période contemporaine', 'Les Temps modernes'], 2, 'Louis XIV règne pendant les Temps modernes.', 'versailles'],
   ['Quand se termine la Seconde Guerre mondiale, à laquelle est associé Charles de Gaulle ?', ['1914', '1945', '1804'], 1, 'La Seconde Guerre mondiale se termine en 1945.', 'de_gaulle']
 ];
+
+const DOCUMENTS = {
+  'fiche-eleve':['Fiche élève',4],
+  'evaluation':['Évaluation',2],
+  'je-retiens':['Je retiens',2],
+  'chiffres-romains':['Mémo des chiffres romains',1]
+};
