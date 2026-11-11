@@ -40,8 +40,9 @@ h1:focus, h2:focus, main:focus, .retour:focus { outline: none }
 .toolbar { position: sticky; top: 0; z-index: 10; background: var(--nav); color: #fff; box-shadow: 0 2px 10px #1b0f2c33 }
 .toolbar-inner { height: var(--bar); max-width: 1500px; margin: auto; padding: 0 clamp(.6rem, 2vw, 1.4rem); display: flex; align-items: center; justify-content: space-between; gap: .75rem }
 .brand { display: flex; align-items: center; gap: .8rem; color: inherit; text-decoration: none; min-width: 0 }
-.brand-logo { flex: none; display: grid; place-items: center; width: 70px; height: 70px; margin-bottom: -12px; align-self: flex-start; margin-top: 3px; background: #fff; border-radius: 18px; box-shadow: 0 4px 14px #12082455; padding: 4px }
-.brand-logo img { width: 100%; height: 100%; object-fit: contain }
+.brand-logo { flex: none; position: relative; width: 84px; height: 84px; margin: 18px 0 -26px; align-self: flex-start; background: #fff; border-radius: 50%; box-shadow: 0 4px 14px #12082455; z-index: 11 }
+/* Le cercle blanc épouse l'anneau du logo ; la pointe du haut dépasse */
+.brand-logo img { position: absolute; left: 50%; bottom: 0; width: auto; height: 100px; max-width: none; transform: translateX(-50%) }
 .brand-text { line-height: 1.1; min-width: 0 }
 .brand-text strong { display: block; font-size: 1.15rem }
 .brand-text small { display: block; color: #e6daf8; font-size: .78rem; margin-top: .2rem; white-space: nowrap }
@@ -131,8 +132,9 @@ main { flex: 1; min-width: 0; padding: clamp(.9rem, 2.2vw, 1.5rem) clamp(.6rem, 
 .galerie-item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 7px }
 
 /* ---------------------------------------------------------------- PAGES (une activité = un écran) */
-body[data-ecran="page"] main { padding: .6rem clamp(.5rem, 1.6vw, 1.1rem) .6rem }
-.page.fit { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: .55rem; height: calc(100dvh - var(--bar) - 1.2rem) }
+body[data-ecran="page"] main { padding: 1.6rem clamp(.5rem, 1.6vw, 1.1rem) .6rem }
+.page.fit { display: grid; grid-template-rows: auto minmax(0, 1fr); gap: .55rem; height: calc(100dvh - var(--bar) - 2.2rem) }
+.page-barre { padding-left: 1rem }
 .page-barre { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: .4rem .9rem; padding: .4rem .55rem .4rem .7rem; background: var(--tone); border: 1px solid var(--tone-line); border-radius: 14px }
 .fil { display: flex; align-items: center; gap: .45rem; font-size: .82rem; font-weight: 750; color: var(--deep); max-width: 18rem; min-width: 0 }
 .fil .back { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: #fff; font-size: 1.1rem }
@@ -352,7 +354,9 @@ dialog::backdrop { background: #1b0f2cc7 }
 /* Petits écrans ou écrans très bas : on autorise le défilement */
 @media (max-width: 700px), (max-height: 560px) {
   :root { --bar: 64px }
-  .brand-logo { width: 56px; height: 56px; margin-bottom: -8px; border-radius: 14px }
+  body[data-ecran="page"] main { padding-top: .8rem }
+  .brand-logo { width: 54px; height: 54px; margin: 9px 0 -8px }
+  .brand-logo img { height: 64px }
   .brand-text small { display: none }
   .page.fit { height: auto; min-height: calc(100dvh - var(--bar) - 1.2rem) }
   .page-corps, .activite-zone, .placer, .zones-frise, .zones-periodes, .zones-lignes, .cartes-nombres, .choix-grille, .bilan-liste, .colonne { min-height: auto }
