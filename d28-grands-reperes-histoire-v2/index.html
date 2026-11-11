@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#33214f">
+  <title>D28 · Quels sont les grands repères de l’histoire ?</title>
+  <link rel="icon" href="assets/logos/logo-personnel.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/contenus.js" defer></script>
+  <script src="js/elea.js" defer></script>
+  <script src="js/scores.js" defer></script>
+  <script src="js/activites.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- BANDEAU SUPÉRIEUR : logo (brand kit) + 4 boutons regroupés + note -->
+  <header class="toolbar">
+    <div class="toolbar-inner">
+      <a class="brand" href="#sommaire" aria-label="Retour au sommaire">
+        <span class="brand-logo"><img src="assets/logos/logo-personnel.png" alt="" width="64" height="70"></span>
+        <span class="brand-text"><strong id="brand-matiere"></strong><small id="brand-niveau"></small></span>
+      </a>
+      <div class="toolbar-right">
+        <a class="note-chip" href="#p/bilan" id="note-chip" title="Ma note générale"><span aria-hidden="true">★</span> <strong id="note-valeur">0</strong>&nbsp;/&nbsp;10</a>
+        <nav class="tools" aria-label="Boutons de l’application">
+          <a class="tool" href="#sommaire" data-nav="sommaire"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h5v-6h4v6h5V10"/></svg><span>Sommaire</span></a>
+          <button class="tool" id="pages" type="button" aria-expanded="false" aria-controls="navigateur"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1.5"/><path d="M14 6h7M14 12h7M14 18h7"/></svg><span>Pages</span></button>
+          <a class="tool" href="#ressources" data-nav="ressources"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h7l2 2h9v10H3z"/><path d="M3 7V5h6l2 2"/></svg><span>Ressources</span></a>
+          <button class="tool" id="fullscreen" type="button" title="Plein écran" aria-label="Plein écran"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg><span>Plein écran</span></button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <!-- NAVIGATEUR DE PAGES (à gauche, repliable et épinglable) -->
+    <aside id="navigateur" class="navigator" aria-label="Navigateur de pages" hidden>
+      <div class="navigator-head"><strong>Pages</strong><button id="pin" class="btn small alt" type="button" aria-pressed="false">Épingler</button><button id="close-nav" class="close" type="button" aria-label="Replier les pages">×</button></div>
+      <nav id="page-links" aria-label="Pages de la séance"></nav>
+    </aside>
+    <main id="contenu" tabindex="-1"></main>
+  </div>
+
+  <!-- VISIONNEUSE des fichiers -->
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-top"><h2 id="viewer-title"></h2><button type="button" class="close" id="close-viewer" aria-label="Fermer la visionneuse">×</button></div>
+    <div id="viewer-body" class="viewer-body"></div>
+  </dialog>
+  <noscript>Active JavaScript dans ton navigateur pour utiliser l’application.</noscript>
+</body>
+</html>

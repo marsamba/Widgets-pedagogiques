@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="D28_HISTOIRE_CE2_V2" version="2.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="D28">
+    <organization identifier="D28">
+      <title>Quels sont les grands repères de l’histoire ? · CE2</title>
+      <item identifier="SEANCE" identifierref="APP">
+        <title>Dossier 28 · Les grands repères de l’histoire (V2)</title>
+        <adlcp:masteryscore>50</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="APP" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="LIRE-MOI.md"/>
+      <file href="assets/apercus/bio-charlemagne-1.webp"/>
+      <file href="assets/apercus/bio-clovis-1.webp"/>
+      <file href="assets/apercus/bio-de-gaulle-1.webp"/>
+      <file href="assets/apercus/bio-francois-1er-1.webp"/>
+      <file href="assets/apercus/bio-jeanne-d-arc-1.webp"/>
+      <file href="assets/apercus/bio-louis-xiv-1.webp"/>
+      <file href="assets/apercus/bio-louis-xvi-1.webp"/>
+      <file href="assets/apercus/bio-napoleon-1.webp"/>
+      <file href="assets/apercus/bio-vercingetorix-1.webp"/>
+      <file href="assets/apercus/chiffres-romains-1.webp"/>
+      <file href="assets/apercus/corriges-1.webp"/>
+      <file href="assets/apercus/corriges-2.webp"/>
+      <file href="assets/apercus/corriges-3.webp"/>
+      <file href="assets/apercus/corriges-4.webp"/>
+      <file href="assets/apercus/corriges-5.webp"/>
+      <file href="assets/apercus/corriges-6.webp"/>
+      <file href="assets/apercus/evaluation-1.webp"/>
+      <file href="assets/apercus/evaluation-2.webp"/>
+      <file href="assets/apercus/fiche-a-decouper-1.webp"/>
+      <file href="assets/apercus/fiche-eleve-1.webp"/>
+      <file href="assets/apercus/fiche-eleve-2.webp"/>
+      <file href="assets/apercus/fiche-eleve-3.webp"/>
+      <file href="assets/apercus/fiche-eleve-4.webp"/>
+      <file href="assets/apercus/fiche-enseignant-1.webp"/>
+      <file href="assets/apercus/fiche-enseignant-2.webp"/>
+      <file href="assets/apercus/grandes-dates-1.webp"/>
+      <file href="assets/apercus/je-retiens-1.webp"/>
+      <file href="assets/apercus/je-retiens-2.webp"/>
+      <file href="assets/apercus/lieux-histoire-1.webp"/>
+      <file href="assets/apercus/schema-recapitulatif-1.webp"/>
+      <file href="assets/documents/bio-charlemagne.pdf"/>
+      <file href="assets/documents/bio-clovis.pdf"/>
+      <file href="assets/documents/bio-de-gaulle.pdf"/>
+      <file href="assets/documents/bio-francois-1er.pdf"/>
+      <file href="assets/documents/bio-jeanne-d-arc.pdf"/>
+      <file href="assets/documents/bio-louis-xiv.pdf"/>
+      <file href="assets/documents/bio-louis-xvi.pdf"/>
+      <file href="assets/documents/bio-napoleon.pdf"/>
+      <file href="assets/documents/bio-vercingetorix.pdf"/>
+      <file href="assets/documents/chiffres-romains.pdf"/>
+      <file href="assets/documents/corriges.pdf"/>
+      <file href="assets/documents/evaluation.docx"/>
+      <file href="assets/documents/evaluation.pdf"/>
+      <file href="assets/documents/fiche-a-decouper.pdf"/>
+      <file href="assets/documents/fiche-eleve.pdf"/>
+      <file href="assets/documents/fiche-enseignant.pdf"/>
+      <file href="assets/documents/grandes-dates.pdf"/>
+      <file href="assets/documents/je-retiens.docx"/>
+      <file href="assets/documents/je-retiens.pdf"/>
+      <file href="assets/documents/lieux-histoire.pdf"/>
+      <file href="assets/documents/schema-recapitulatif.pdf"/>
+      <file href="assets/icones/cartes.png"/>
+      <file href="assets/icones/docs-a-imprimer.png"/>
+      <file href="assets/icones/ensemble-de-docs.png"/>
+      <file href="assets/icones/exos-interactifs.png"/>
+      <file href="assets/icones/image.png"/>
+      <file href="assets/icones/liens-url.png"/>
+      <file href="assets/icones/schemas.png"/>
+      <file href="assets/icones/videos-interactives.png"/>
+      <file href="assets/icones/videos.png"/>
+      <file href="assets/images/alesia.webp"/>
+      <file href="assets/images/amerique.webp"/>
+      <file href="assets/images/bastille.webp"/>
+      <file href="assets/images/bastille2.webp"/>
+      <file href="assets/images/chambord.webp"/>
+      <file href="assets/images/charlemagne-sacre.webp"/>
+      <file href="assets/images/charlemagne.webp"/>
+      <file href="assets/images/chute-empire-romain.webp"/>
+      <file href="assets/images/clovis.webp"/>
+      <file href="assets/images/clovisbapteme.webp"/>
+      <file href="assets/images/colomb.webp"/>
+      <file href="assets/images/croisades.webp"/>
+      <file href="assets/images/de-gaulle.webp"/>
+      <file href="assets/images/ecriture.webp"/>
+      <file href="assets/images/francois.webp"/>
+      <file href="assets/images/frise-periodes.webp"/>
+      <file href="assets/images/frise-perso.webp"/>
+      <file href="assets/images/henri-iv.webp"/>
+      <file href="assets/images/homme-tautavel.webp"/>
+      <file href="assets/images/jeanne.webp"/>
+      <file href="assets/images/liberation.webp"/>
+      <file href="assets/images/louis-xiv.webp"/>
+      <file href="assets/images/louis-xvi.webp"/>
+      <file href="assets/images/napoleon-sacre.webp"/>
+      <file href="assets/images/napoleon.webp"/>
+      <file href="assets/images/poilus.webp"/>
+      <file href="assets/images/saint-louis.webp"/>
+      <file href="assets/images/schema-recapitulatif.webp"/>
+      <file href="assets/images/siege-orleans.webp"/>
+      <file href="assets/images/st-barthelemy.webp"/>
+      <file href="assets/images/tautavel-crane.webp"/>
+      <file href="assets/images/vercingetorix.webp"/>
+      <file href="assets/images/versailles.webp"/>
+      <file href="assets/logos/logo-personnel.png"/>
+      <file href="assets/videos/chiffres-romains.jpg"/>
+      <file href="assets/videos/chiffres-romains.mp4"/>
+      <file href="assets/videos/frise-historique.jpg"/>
+      <file href="assets/videos/frise-historique.mp4"/>
+      <file href="css/style.css"/>
+      <file href="index.html"/>
+      <file href="js/activites.js"/>
+      <file href="js/app.js"/>
+      <file href="js/contenus.js"/>
+      <file href="js/elea.js"/>
+      <file href="js/scores.js"/>
+    </resource>
+  </resources>
+</manifest>
